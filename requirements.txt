@@ -4,3 +4,4 @@ websockets
 websocket-client
 redis
 djangorestframework
+whitenoise

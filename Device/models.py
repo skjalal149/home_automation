@@ -23,7 +23,7 @@ class Room(BaseModel):
 class Device(BaseModel):
     room = models.ForeignKey(to=Room, related_name="room_device", on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
-    deviceID = models.CharField(max_length=100)
+    deviceID = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return f"{self.name} - {self.deviceID}"

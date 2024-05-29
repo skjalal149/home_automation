@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import *
-from Widget.Serializer import ButtonSerializer, ProgressBarSerializer
+from Widget.Serializer import ButtonSerializer, ProgressBarSerializer, ColorStatusSerializer
 
 
 class RoomSerializer(serializers.ModelSerializer):
@@ -13,8 +13,9 @@ class RoomSerializer(serializers.ModelSerializer):
 class DeviceSerializer(serializers.ModelSerializer):
     room = serializers.SlugRelatedField("uid", queryset=Room.objects.all())
     room_name = serializers.SlugRelatedField("name", queryset=Room.objects.all(), source='room')
-    buttons = ButtonSerializer(many=True, read_only=True)
-    progress = ProgressBarSerializer(many=True, read_only=True)
+    buttons = ButtonSerializer(read_only=True)
+    progress = ProgressBarSerializer(read_only=True)
+    color = ColorStatusSerializer(read_only=True)
 
     class Meta:
         model = Device

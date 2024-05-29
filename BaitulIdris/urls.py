@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from Device.views import RoomView, DeviceView
+from Device.views import RoomView, DeviceView, RoomDetailView
 
 router = DefaultRouter()
 router.register('room', RoomView)
 router.register('device', DeviceView)
+router.register('room_detail', RoomDetailView, basename='Room Detail')
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),

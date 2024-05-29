@@ -15,7 +15,7 @@ BUTTON_TYPE = (("S", "SWITCH"), ("P", "PUSH BUTTON"))
 
 
 class Button(BaseModel):
-    device = models.ForeignKey("Device.Device", on_delete=models.CASCADE, related_name="buttons")
+    device = models.OneToOneField("Device.Device", on_delete=models.CASCADE, related_name="buttons")
     name = models.CharField(max_length=255)
     button_type = models.CharField(max_length=1, choices=BUTTON_TYPE)
     status = models.BooleanField(default=False)
@@ -25,7 +25,7 @@ class Button(BaseModel):
 
 
 class ProgressBar(BaseModel):
-    device = models.ForeignKey("Device.Device", on_delete=models.CASCADE, related_name="progress")
+    device = models.OneToOneField("Device.Device", on_delete=models.CASCADE, related_name="progress")
     name = models.CharField(max_length=255)
     value = models.FloatField(default=0.0)
 
@@ -34,7 +34,7 @@ class ProgressBar(BaseModel):
 
 
 class ColorStatus(BaseModel):
-    device = models.ForeignKey("Device.Device", on_delete=models.CASCADE, related_name="color")
+    device = models.OneToOneField("Device.Device", on_delete=models.CASCADE, related_name="color")
     name = models.CharField(max_length=255)
     value = models.CharField(max_length=9)
 

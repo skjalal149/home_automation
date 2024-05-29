@@ -19,3 +19,10 @@ class DeviceView(ModelViewSet):
     serializer_class = DeviceSerializer
     lookup_field = "room__uid"
     http_method_names = ['get']
+
+
+class RoomDetailView(ModelViewSet):
+    queryset = Room.objects.all()
+    serializer_class = RoomDetailsSerializer
+    lookup_field = "room__uid"
+    http_method_names = ['get']

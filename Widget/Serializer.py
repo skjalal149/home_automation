@@ -17,3 +17,9 @@ class ProgressBarSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProgressBar
         exclude = ['id']
+
+
+class ColorStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ColorStatus
+        exclude = ['id']

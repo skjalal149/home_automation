@@ -24,6 +24,7 @@ router.register('room', RoomView)
 router.register('device', DeviceView)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path("api/", include("Widget.urls"))
 ]

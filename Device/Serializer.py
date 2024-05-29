@@ -11,8 +11,6 @@ class RoomSerializer(serializers.ModelSerializer):
 
 
 class DeviceSerializer(serializers.ModelSerializer):
-    room = serializers.SlugRelatedField("uid", queryset=Room.objects.all())
-    room_name = serializers.SlugRelatedField("name", queryset=Room.objects.all(), source='room')
     buttons = ButtonSerializer(read_only=True)
     progress = ProgressBarSerializer(read_only=True)
     color = ColorStatusSerializer(read_only=True)
